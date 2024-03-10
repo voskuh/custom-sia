@@ -14,6 +14,7 @@ from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import (
     STATE_ALARM_ARMED_AWAY,
     STATE_ALARM_ARMED_CUSTOM_BYPASS,
+    STATE_ALARM_ARMED_HOME,
     STATE_ALARM_ARMED_NIGHT,
     STATE_ALARM_DISARMED,
     STATE_ALARM_TRIGGERED,
@@ -46,7 +47,7 @@ ENTITY_DESCRIPTION_ALARM = SIAAlarmControlPanelEntityDescription(
         "BA": STATE_ALARM_TRIGGERED,
         "CA": STATE_ALARM_ARMED_AWAY,
         "CB": STATE_ALARM_ARMED_AWAY,
-        "CG": STATE_ALARM_ARMED_AWAY,
+        "CG": STATE_ALARM_ARMED_HOME,
         "CL": STATE_ALARM_ARMED_AWAY,
         "CP": STATE_ALARM_ARMED_AWAY,
         "CQ": STATE_ALARM_ARMED_AWAY,
