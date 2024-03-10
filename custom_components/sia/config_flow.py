@@ -38,7 +38,7 @@ _LOGGER = logging.getLogger(__name__)
 HUB_SCHEMA = vol.Schema(
     {
         vol.Required(CONF_PORT): int,
-        vol.Optional(CONF_PROTOCOL, default="TCP"): vol.In(["TCP", "UDP"]),
+        vol.Optional(CONF_PROTOCOL, default="TCP"): vol.In(["TCP", "UDP", "OH"]),
         vol.Required(CONF_ACCOUNT): str,
         vol.Optional(CONF_ENCRYPTION_KEY): str,
         vol.Required(CONF_PING_INTERVAL, default=1): int,
