@@ -130,6 +130,9 @@ class SIAAlarmControlPanel(SIABaseEntity, AlarmControlPanelEntity):
             return False
         _LOGGER.debug("New state will be %s", new_state)
         if new_state == PREVIOUS_STATE:
-            new_state = self._old_state
+            if self._old_state != 'triggered':
+                new_state = self._old_state
+            else:
+                new_state = self._state
         self._attr_state, self._old_state = new_state, self._attr_state
         return True
