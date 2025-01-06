@@ -80,7 +80,6 @@ async def async_setup_entry(
         )
     )
 
-
 class SIAAlarmControlPanel(SIABaseEntity, AlarmControlPanelEntity):
     """Class for SIA Alarm Control Panels."""
 
@@ -101,13 +100,17 @@ class SIAAlarmControlPanel(SIABaseEntity, AlarmControlPanelEntity):
             entity_description,
         )
 
-        self._attr_state: StateType = None
-        self._old_state: StateType = None
+        self.alarm_state: AlarmControlPanelState | None = None
+        self._old_state: AlarmControlPanelState | None = None
+
+    def alarm_state(self) -> AlarmControlPanelState | None:
+        """Return the state of the alarm."""
+        return self.alarm_state
 
     def handle_last_state(self, last_state: State | None) -> None:
         """Handle the last state."""
         if last_state is not None:
-            self._attr_state = last_state.state
+            self.alarm_state = last_state.state
         if self.state == STATE_UNAVAILABLE:
             self._attr_available = False
 
@@ -127,5 +130,5 @@ class SIAAlarmControlPanel(SIABaseEntity, AlarmControlPanelEntity):
                 new_state = self._old_state
             else:
                 new_state = self._state
-        self._attr_state, self._old_state = new_state, self._attr_state
+        self.alarm_state, self._old_state = new_state, self.alarm_state
         return True
