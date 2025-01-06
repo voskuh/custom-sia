@@ -58,7 +58,9 @@ class SIAHub:
             device_registry.async_get_or_create(
                 config_entry_id=self._entry.entry_id,
                 identifiers={(DOMAIN, f"{self._port}_{account}")},
-                name=f"{self._port} - {account}",
+                name=f"SIA Device {account} ({self._port})",
+                manufacturer="SIA",
+                model="Alarm System",
             )
         self._entry.async_on_unload(
             self._entry.add_update_listener(self.async_config_entry_updated)
