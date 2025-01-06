@@ -76,7 +76,6 @@ class SIABaseEntity(RestoreEntity):
         self.name = entity_description.key
 
         self._attr_device_info = DeviceInfo(
-            name=self._attr_name,
             identifiers={(DOMAIN, f"{entry.data[CONF_PORT]}_{account}")},
         )
 
