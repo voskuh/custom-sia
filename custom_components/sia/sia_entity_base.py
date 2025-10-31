@@ -73,10 +73,10 @@ class SIABaseEntity(RestoreEntity):
         self._attr_unique_id, self._attr_name = get_unique_id_and_name(
             entry.entry_id, entry.data[CONF_PORT], account, zone, entity_description.key
         )
+        self.name = entity_description.key
+
         self._attr_device_info = DeviceInfo(
-            name=self._attr_name,
-            identifiers={(DOMAIN, self._attr_unique_id)},
-            via_device=(DOMAIN, f"{entry.data[CONF_PORT]}_{account}"),
+            identifiers={(DOMAIN, f"{entry.data[CONF_PORT]}_{account}")},
         )
 
         self._post_interval_update_cb_canceller: CALLBACK_TYPE | None = None
