@@ -90,6 +90,19 @@ async def generate_text_logs(hass, entry: ConfigEntry) -> Iterable[SIATextLog]:
             )
         )
 
+        # Voeg een log-entiteit toe voor elke zone
+        i = 0
+        while i < zones:
+            entities.append(
+            SIATextLog(
+                entry=entry,
+                account=account,
+                zone=i+1,
+                entity_description=ENTITY_DESCRIPTION_LOG,
+            )
+        )
+            i += 1
+
     return entities
 
 
