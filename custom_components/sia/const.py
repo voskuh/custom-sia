@@ -5,7 +5,7 @@ from typing import Final
 
 from homeassistant.const import Platform
 
-PLATFORMS: Final = [Platform.ALARM_CONTROL_PANEL, Platform.BINARY_SENSOR]
+PLATFORMS: Final = [Platform.ALARM_CONTROL_PANEL, Platform.BINARY_SENSOR, Platform.SENSOR]
 
 DOMAIN: Final = "sia"
 
