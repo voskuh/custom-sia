@@ -41,7 +41,7 @@ class SIATextLog(SIABaseEntity):
     def update_state(self, sia_event) -> bool:
         """Werk de status van de entiteit bij en log het evenement."""
 
-        _LOGGER.info(f"Ontvangen SIA evenement: {sia_event.sia_code}")
+        _LOGGER.debug(f"Ontvangen SIA evenement: {sia_event.sia_code}")
         # Controleer of de code een beschrijving heeft
         if sia_event.sia_code.code == "RP":
             return False
